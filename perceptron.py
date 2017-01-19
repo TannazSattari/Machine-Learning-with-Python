@@ -3,9 +3,9 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-def perceptron(object):
+class perceptron(object):
     
-    def _init(self,n_iter=100,eta=0.01):
+    def __init__(self,n_iter=100,eta=0.01):
         self.n_iter=n_iter
         self.eta=eta
     
@@ -18,7 +18,7 @@ def perceptron(object):
                 update = self.eta*(target - self.predict(xi))
                 self.w[1:] += update *xi
                 self.w[0] += update
-                errors = int(update != 0.0)
+                errors += int(update != 0.0)
             self.errors.append(errors)
         return self
     
